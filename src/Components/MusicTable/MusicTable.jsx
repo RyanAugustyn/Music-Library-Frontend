@@ -30,6 +30,7 @@ const MusicTable = (props) => {
                 </tr>
                 );
             })}
+            <tr>Total Run Time: {props.totalTime} minutes</tr>
             </tbody>
       </table>
      );

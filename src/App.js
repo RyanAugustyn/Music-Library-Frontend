@@ -28,10 +28,9 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      <SearchBar />
-      <MusicTable songlist = {songs} />
-      {/* <button onClick={getAllSongs}>Get the songs</button>
-      <h1>TEST</h1> */}
+      <SearchBar songlist = {songs} setSongs= {setSongs}/>
+      <MusicTable songlist = {songs} totalTime={totalTime}/>
+      
     </div>
   );
 }
