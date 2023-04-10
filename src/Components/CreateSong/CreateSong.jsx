@@ -10,25 +10,35 @@ const CreateSong = (props) => {
     const[runningTime, setRunningTime] = useState(0);
     const[genre, setGenre] = useState('');
 
-    function createSong(newSong){
-        let url = '/http://127.0.0.1:5000/api/songs';
-        axios.post(url, newSong);
+    async function createSong(newSong){
+        try{
+            let url = "/http://127.0.0.1:5000/api/songs";
+            await axios.post(url, newSong);
+    }catch(error){
+        console.log(error);
+    }
         
     }
-    function handleSubmit(event){
+
+
+    async function handleSubmit(event){
         event.preventDefault();
 
         let newSong = {
-            title: title,
-            artist: artist,
-            album: album, 
-            running_time: runningTime, 
-            genre: genre
+            "title": title,
+            "artist": artist,
+            "album": album, 
+            "running_time": runningTime, 
+            "genre": genre
         };
 
         console.log(title);
         console.log(newSong);
-        createSong(newSong);
+        try{let url = '/http://127.0.0.1:5000/api/songs';
+        await axios.post(url, newSong);
+    }catch(error){
+        console.log(error);
+    }
     }
 
     return ( 
