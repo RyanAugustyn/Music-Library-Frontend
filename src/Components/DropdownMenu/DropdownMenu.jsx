@@ -12,14 +12,14 @@ const DropdownMenu = (props) => {
         { label: 'Title', value: 'title' },
       ];
      
-      const [value, setValue] = useState('title');
+      const [value, setValue] = useState('');
      
       const handleChange = (event) => {
         event.preventDefault();
         setValue(event.target.value);
-        props.setDropdownValue(value);
+        props.setDropdownValue(event.target.value);
       };
-      console.log(value);
+
       return (
         <div>
           <Dropdown
